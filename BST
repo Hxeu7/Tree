@@ -1,0 +1,169 @@
+  TreeNode root;
+    
+    public BST(){
+        root=null;
+    }
+    
+    
+    
+     public void insertNode(int data){
+        root = insertNode(root,data);
+    }
+
+   private  TreeNode insertNode(TreeNode node , int data){
+        TreeNode newNode = new TreeNode(data);
+        if (node == null){
+            if (size() ==0){
+                System.out.println(data+" is the root");
+            }
+            else {
+                System.out.println(data+" has inserted");
+            }
+            node = newNode;
+            return node ;
+        }
+
+        if (data>= node.data){
+            node.right = insertNode(node.right,data);
+
+        }
+        else if (data< node.data){
+            node.left = insertNode(node.left,data);
+
+        }
+
+        return node;
+
+    }
+   /***********/
+    
+    int size(TreeNode node ){
+
+        if (node == null){
+            return 0;
+        }
+
+
+     return size(node.left) + 1 + size(node.right);
+
+    }
+    /***********/
+    
+    int size(){
+
+        return size(root);
+
+    }
+    /***********/
+    
+    
+    
+      void In_order_LeftRight(){
+        System.out.println("in order left to right");
+        In_order_LeftRight(root);
+        System.out.println();
+    }
+    private void In_order_LeftRight(TreeNode node){
+        if (node != null){
+            System.out.print(node.data+" ");
+            In_order_LeftRight(node.left);
+            In_order_LeftRight(node.right);
+                }
+          }
+    void In_order_RightLeft(){
+        System.out.println("in order Right to left");
+        In_order_RightLeft(root);
+        System.out.println("");
+    }
+    private void In_order_RightLeft(TreeNode node){
+        if (node != null){
+        System.out.print(node.data+" ");
+        In_order_RightLeft(node.right);
+        In_order_RightLeft(node.left);
+               }
+         }
+    /***********/
+    
+     void Preorder_LeftRight(){
+        Preorder_LeftRight(root);
+    }
+    private void Preorder_LeftRight(TreeNode node){
+        if (node != null){
+        Preorder_LeftRight(node.left);
+        System.out.println(node.data);
+        Preorder_LeftRight(node.right);
+               }
+          }
+    void Preorder_RightLeft(){
+        Preorder_RightLeft(root);
+    }
+    private void Preorder_RightLeft(TreeNode node){
+        if (node != null){
+            Preorder_RightLeft(node.right);
+
+        System.out.println(node.data);
+        Preorder_RightLeft(node.left);
+                }
+         }
+    
+    /***********/
+    
+     void Post_order_LeftRight(){
+        Post_order_LeftRight(root);
+    }
+
+    private void Post_order_LeftRight(TreeNode node){
+        if (node!=null){
+            Post_order_LeftRight(node.left);
+            Post_order_LeftRight(node.right);
+            System.out.println(node.data);
+        }
+    }
+    void Post_order_RightLeft(){
+        Post_order_RightLeft(root);
+    }
+    private void Post_order_RightLeft(TreeNode node){
+        if (node!=null){
+            Post_order_RightLeft(node.left);
+            Post_order_RightLeft(node.right);
+            System.out.println(node.data);
+        }
+    }
+    
+    /***********/
+    
+      public void DisplayRoot(){
+        if (root == null){
+            System.out.println("there is no root");
+            
+        }
+        System.out.println(root.data);
+
+    }
+      /***********/
+      
+       public void DisplayDegree0(){
+        System.out.println();
+        System.out.println("Degree "+0);
+
+        DisplayDegree0(root);
+    }
+       
+       /***********/
+    private void DisplayDegree0(TreeNode node){
+        if(node == null) {
+            
+        }
+        if(node.left == null && node.right == null) {
+            System.out.print(node.data + " ");
+            
+        }
+        DisplayDegree0(node.left);
+        DisplayDegree0(node.right);
+
+    }
+    
+    
+    
+    
+}
